@@ -20,4 +20,4 @@ driverUserSchema.methods.validarClave = async function (claveIngresada) {
 
 const DriverUser = mongoose.model('driverUser', driverUserSchema);
 
-module.exports = DriverUser;
+module.exports = driverUser;
