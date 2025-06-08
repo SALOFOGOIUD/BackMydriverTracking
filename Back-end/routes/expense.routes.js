@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Expense = require('../Models/expense');
-const auth = require('../middlewares/auth');
+const auth = require('../Middlewares/auth');
 
 router.get('/', auth, async (req, res) => {
   const gastos = await Expense.find({ idUser: req.user.id });
