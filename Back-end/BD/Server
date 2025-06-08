@@ -1,0 +1,23 @@
+const mongoose = require('mongoose');
+
+const uri = `mongodb+srv://Admin:${encodeURIComponent("Admin")}@treal.i7u0c.mongodb.net/BD_IUD?retryWrites=true&w=majority`;
+
+async function connectDB() {
+  try {
+    await mongoose.connect(uri, { 
+      serverSelectionTimeoutMS: 15000,
+      socketTimeoutMS: 45000,
+    });    
+
+    console.log("Conectado a Mongo");
+
+    // 🔹 Verifica que Mongoose esté listo antes de aceptar peticiones
+    console.log("🔹 Estado de conexión Mongoose:", mongoose.connection.readyState);
+    
+  } catch (error) {
+    console.error("Error conexión Mongo:", error.message);
+    process.exit(1);
+  }
+}
+
+module.exports = { connectDB };
