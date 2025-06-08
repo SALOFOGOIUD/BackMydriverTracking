@@ -22,9 +22,9 @@ function formatearUsuario(usuario) {
 }
 
 async function crearUsuario({ email, nombre, clave }) {
-  const existe = await DriverUser.findOne({ email });
+  const existe = await driverUser.findOne({ email });
   if (existe) throw new Error("Email ya registrado");
-  const nuevoUsuario = new DriverUser({ email, nombre, clave });
+  const nuevoUsuario = new driverUser({ email, nombre, clave });
   await nuevoUsuario.save();
   return nuevoUsuario;
 }
@@ -57,7 +57,7 @@ router.post('/login', async (req, res) => {
   }
 
   try {
-    const usuario = await DriverUser.findOne({ email });
+    const usuario = await driverUser.findOne({ email });
     if (!usuario) return res.status(401).json({ message: "Usuario no encontrado" });
 
     const claveValida = await usuario.validarClave(clave);
@@ -85,9 +85,9 @@ router.post('/google', async (req, res) => {
     });
     const payload = ticket.getPayload();
     const { email, name, sub: googleId } = payload;
-    let usuario = await DriverUser.findOne({ email });
+    let usuario = await driverUser.findOne({ email });
     if (!usuario) {
-      usuario = new DriverUser({
+      usuario = new driverUser({
         email,
         nombre: name,
         clave: googleId // solo como placeholder, idealmente generar token único
