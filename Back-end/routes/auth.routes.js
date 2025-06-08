@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const driveruser = require('../Models/driveruser'); // nombre actualizado del modelo
+const driveruser = require('../models/driveruser'); // nombre actualizado del modelo
 const jwt = require('jsonwebtoken');
 const { OAuth2Client } = require('google-auth-library');
 
