@@ -15,7 +15,7 @@ const port = process.env.PORT || 4000;
 
 // CORS configurado para permitir acceso desde Netlify
 const corsOptions = {
-  origin: ['https://mydrivertracking.netlify.app'],
+  origin: ['https://mydrivertracking.netlify.app/api'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 };
