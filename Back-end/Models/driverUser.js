@@ -18,6 +18,6 @@ driverUserSchema.methods.validarClave = async function (claveIngresada) {
   return await bcrypt.compare(claveIngresada, this.clave);
 };
 
-const DriverUser = mongoose.model('driverUser', driverUserSchema);
+const driverUser = mongoose.model('driverUser', driverUserSchema);
 
 module.exports = driverUser;
