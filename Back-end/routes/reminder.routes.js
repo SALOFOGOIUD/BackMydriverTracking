@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Reminder = require('../Models/reminder');
-const auth = require('../middlewares/auth');
+const auth = require('../Middlewares/auth');
 
 router.get('/', auth, async (req, res) => {
   const recordatorios = await Reminder.find({ idUser: req.user.id });
