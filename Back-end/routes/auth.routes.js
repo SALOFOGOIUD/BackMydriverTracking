@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const { OAuth2Client } = require('google-auth-library');
 
 const SECRET_KEY = process.env.SECRET_KEY || "tu_clave_secreta_jwt";
-const client = new OAuth2Client("757470978448-8sp8rbnl0ffpt5rfnh3k59dokm675s91.apps.googleusercontent.com");
+const client = new OAuth2Client("348923338054-n32k3oqrqlt6gc1am9mk4pqfo9lpc86p.apps.googleusercontent.com");
 
 // Helpers
 function camposRequeridos(obj, campos) {
