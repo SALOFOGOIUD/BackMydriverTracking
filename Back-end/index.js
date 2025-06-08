@@ -28,7 +28,6 @@ app.use('/api/expenses', expenseRoutes);
 app.use('/api/fixedcosts', fixedCostRoutes);
 app.use('/api/reminders', reminderRoutes);
 
-// Servidor
-app.listen(port, () => {
-  console.log(`✅ API escuchando en http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`✅ API escuchando en http://0.0.0.0:${port}`);
 });
