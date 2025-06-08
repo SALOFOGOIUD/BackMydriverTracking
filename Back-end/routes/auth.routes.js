@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const driverUser = require('../models/driverUser'); // nombre actualizado del modelo
+const driveruser = require('../models/driveruser'); // nombre actualizado del modelo
 const jwt = require('jsonwebtoken');
 const { OAuth2Client } = require('google-auth-library');
 
@@ -22,9 +22,9 @@ function formatearUsuario(usuario) {
 }
 
 async function crearUsuario({ email, nombre, clave }) {
-  const existe = await driverUser.findOne({ email });
+  const existe = await driveruser.findOne({ email });
   if (existe) throw new Error("Email ya registrado");
-  const nuevoUsuario = new driverUser({ email, nombre, clave });
+  const nuevoUsuario = new driveruser({ email, nombre, clave });
   await nuevoUsuario.save();
   return nuevoUsuario;
 }
@@ -57,7 +57,7 @@ router.post('/login', async (req, res) => {
   }
 
   try {
-    const usuario = await driverUser.findOne({ email });
+    const usuario = await driveruser.findOne({ email });
     if (!usuario) return res.status(401).json({ message: "Usuario no encontrado" });
 
     const claveValida = await usuario.validarClave(clave);
@@ -85,9 +85,9 @@ router.post('/google', async (req, res) => {
     });
     const payload = ticket.getPayload();
     const { email, name, sub: googleId } = payload;
-    let usuario = await driverUser.findOne({ email });
+    let usuario = await driveruser.findOne({ email });
     if (!usuario) {
-      usuario = new driverUser({
+      usuario = new driveruser({
         email,
         nombre: name,
         clave: googleId // solo como placeholder, idealmente generar token único
