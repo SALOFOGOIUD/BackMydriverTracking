@@ -81,7 +81,7 @@ router.post('/google', async (req, res) => {
   try {
     const ticket = await client.verifyIdToken({
       idToken,
-      audience: "757470978448-8sp8rbnl0ffpt5rfnh3k59dokm675s91.apps.googleusercontent.com",
+      audience: "348923338054-n32k3oqrqlt6gc1am9mk4pqfo9lpc86p.apps.googleusercontent.com"
     });
     const payload = ticket.getPayload();
     const { email, name, sub: googleId } = payload;
