@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Income = require('../Models/income');
-const auth = require('../middlewares/auth');
+const auth = require('../Middlewares/auth');
 
 router.get('/', auth, async (req, res) => {
   const ingresos = await Income.find({ idUser: req.user.id });
