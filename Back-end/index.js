@@ -11,7 +11,8 @@ const fixedCostRoutes = require('./routes/fixedcost.routes');
 const reminderRoutes = require('./routes/reminder.routes');
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT; // Quita el fallback
+
 
 // Middlewares
 app.use(cors());
