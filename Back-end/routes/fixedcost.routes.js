@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const FixedCost = require('../Models/fixedCost');
-const auth = require('../Middlewares/auth');
+const auth = require('../middlewares/auth');
 
 router.get('/', auth, async (req, res) => {
   const costos = await FixedCost.find({ idUser: req.user.id });

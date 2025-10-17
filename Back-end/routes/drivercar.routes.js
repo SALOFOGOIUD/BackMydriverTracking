@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const DriverCar = require('../Models/driverCar');
+const DriverCar = require('../models/driverCar');
 const mongoose = require('mongoose');
 
-const Income = require('../Models/income');
-const Expense = require('../Models/expense');
-const FixedCost = require('../Models/fixedCost');
-const Reminder = require('../Models/reminder');
+const Income = require('../models/income');
+const Expense = require('../models/expense');
+const FixedCost = require('../models/fixedCost');
+const Reminder = require('../models/reminder');
 
 
-const auth = require('../Middlewares/auth');
+const auth = require('../middlewares/auth');
 
 // GET /drivercars - Obtener todos los carros del usuario autenticado
 router.get('/', auth, async (req, res) => {
